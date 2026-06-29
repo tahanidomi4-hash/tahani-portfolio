@@ -63,25 +63,18 @@ export default function Hero() {
         Next.js
       </motion.p>
 
-      {/* Buttons */}
+      {/* Button */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.9 }}
-        className="mt-10 flex gap-6 relative z-10"
+        className="mt-10 relative z-10"
       >
         <a
           href="#projects"
           className="bg-blue-600 hover:bg-blue-700 hover:scale-105 duration-300 px-8 py-4 rounded-xl text-xl font-semibold shadow-lg shadow-blue-600/40"
         >
           My Projects
-        </a>
-
-        <a
-          href="/cv.pdf"
-          className="border border-blue-500 hover:bg-blue-500 hover:scale-105 duration-300 px-8 py-4 rounded-xl text-xl font-semibold"
-        >
-          Download CV
         </a>
       </motion.div>
 
