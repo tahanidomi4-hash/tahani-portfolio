@@ -1,96 +1,89 @@
-import Image from "next/image";
+"use client";
+
+import { motion } from "framer-motion";
 
 export default function About() {
-  const stats = [
-    { number: "2+", label: "Years Learning" },
-    { number: "10+", label: "Projects" },
-    { number: "8+", label: "Technologies" },
-    { number: "∞", label: "Passion" },
-  ];
-
   return (
     <section
       id="about"
-      className="bg-[#050816] text-white py-28"
+      className="min-h-screen bg-[#050816] flex items-center justify-center px-6 py-24"
     >
-      <div className="max-w-7xl mx-auto px-6">
-
-        <h2 className="text-5xl font-bold text-center text-blue-500 mb-20">
+      <motion.div
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="max-w-6xl w-full"
+      >
+        <h2 className="text-5xl font-extrabold text-center text-blue-400 mb-16">
           About Me
         </h2>
 
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="grid md:grid-cols-2 gap-12">
 
-          {/* Left Side */}
-
-          <div className="flex justify-center">
-
-            <div className="relative">
-
-              <div className="absolute inset-0 rounded-full bg-blue-600 blur-3xl opacity-30"></div>
-
-              <Image
-                src="/profile.jpg"
-                alt="Tahani"
-                width={330}
-                height={330}
-                className="relative rounded-full border-4 border-blue-500 shadow-[0_0_60px_rgba(59,130,246,.6)] object-cover"
-              />
-
-            </div>
-
-          </div>
-
-          {/* Right Side */}
-
-          <div>
-
-            <h3 className="text-4xl font-bold mb-6">
-              Hello 👋
+          {/* Left Card */}
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            className="bg-[#0b1227] rounded-3xl border border-blue-900 p-10 shadow-2xl"
+          >
+            <h3 className="text-3xl font-bold mb-6 text-white">
+              Who Am I?
             </h3>
 
-            <p className="text-gray-300 leading-9 text-lg mb-6">
-              I'm <span className="text-blue-400 font-bold">Tahani Domi</span>,
+            <p className="text-gray-300 leading-9 text-lg">
+              I am <span className="text-blue-400 font-bold">Tahani Domi</span>,
               a Computer Science student at Al-Balqa Applied University.
+
+              I enjoy building modern websites using React, Next.js,
+              JavaScript and TypeScript while continuously improving my
+              programming and problem-solving skills.
             </p>
+          </motion.div>
 
-            <p className="text-gray-400 leading-9 text-lg mb-6">
-              I enjoy building modern websites and web applications using
-              HTML, CSS, JavaScript, React, Next.js and Tailwind CSS.
-            </p>
+          {/* Right Card */}
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            className="bg-[#0b1227] rounded-3xl border border-blue-900 p-10 shadow-2xl"
+          >
+            <h3 className="text-3xl font-bold mb-6 text-white">
+              Quick Info
+            </h3>
 
-            <p className="text-gray-400 leading-9 text-lg mb-12">
-              My goal is to become a Full Stack Developer, build real-world
-              systems and work remotely with international companies.
-            </p>
+            <div className="space-y-5 text-lg">
 
-            <div className="grid grid-cols-2 gap-5">
+              <div className="flex justify-between">
+                <span className="text-gray-400">University</span>
+                <span className="text-white">
+                  Al-Balqa Applied University
+                </span>
+              </div>
 
-              {stats.map((item, index) => (
+              <div className="flex justify-between">
+                <span className="text-gray-400">Major</span>
+                <span className="text-white">
+                  Computer Science
+                </span>
+              </div>
 
-                <div
-                  key={index}
-                  className="bg-[#111c36] rounded-2xl p-8 text-center border border-blue-900 hover:border-blue-500 hover:scale-105 hover:shadow-blue-500/30 hover:shadow-2xl duration-300"
-                >
-                  <h3 className="text-5xl font-bold text-blue-500">
-                    {item.number}
-                  </h3>
+              <div className="flex justify-between">
+                <span className="text-gray-400">Location</span>
+                <span className="text-white">
+                  Jordan
+                </span>
+              </div>
 
-                  <p className="text-gray-400 mt-4">
-                    {item.label}
-                  </p>
-
-                </div>
-
-              ))}
+              <div className="flex justify-between">
+                <span className="text-gray-400">Focus</span>
+                <span className="text-blue-400">
+                  Full Stack Development
+                </span>
+              </div>
 
             </div>
-
-          </div>
+          </motion.div>
 
         </div>
-
-      </div>
+      </motion.div>
     </section>
   );
 }
