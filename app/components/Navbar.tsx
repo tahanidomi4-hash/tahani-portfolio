@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -32,7 +33,6 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-
         {/* Logo */}
         <a href="#home">
           <img
@@ -42,21 +42,44 @@ export default function Navbar() {
           />
         </a>
 
-        {/* Links */}
-        <div className="hidden md:flex gap-8">
+        {/* Right Side */}
+        <div className="flex items-center gap-8">
+          {/* Navigation Links */}
+          <div className="hidden md:flex gap-8">
+            {links.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-gray-300 hover:text-blue-400 font-medium transition duration-300"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
 
-          {links.map((link) => (
+          {/* Social Icons */}
+          <div className="flex items-center gap-5 text-2xl">
             <a
-              key={link.name}
-              href={link.href}
-              className="text-gray-300 hover:text-blue-400 font-medium transition duration-300"
+              href="https://github.com/tahanidomi4-hash"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white transition duration-300"
+              aria-label="GitHub"
             >
-              {link.name}
+              <FaGithub />
             </a>
-          ))}
 
+            <a
+              href="https://www.linkedin.com/in/tahani-domi-947117389/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-500 transition duration-300"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin />
+            </a>
+          </div>
         </div>
-
       </nav>
     </header>
   );
